@@ -39,9 +39,9 @@ public class Transfer {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-//    @PrePersist
-//    protected void onCreate() {
-//        this.createdAt = LocalDateTime.now();
-//        this.status = TransferStatus.PENDING;
-//    }
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.status = TransferStatus.PENDING;
+    }
 }
