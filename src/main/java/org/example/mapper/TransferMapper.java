@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface TransferMapper {
 
-    //TransferMapper INSTANCE = Mappers.getMapper(TransferMapper.class);
+    TransferMapper INSTANCE = Mappers.getMapper(TransferMapper.class);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "status", ignore = true)
@@ -22,7 +22,7 @@ public interface TransferMapper {
 
     TransferResponseDTO toResponseDTO(Transfer transfer);
 
-    //List<TransferResponseDTO> toResponseDTOList(List<Transfer> transfers);
+    List<TransferResponseDTO> toResponseDTOList(List<Transfer> transfers);
 
     @Mapping(target = "id", source = "transfer.id")
     @Mapping(target = "amount", source = "transfer.amount")
