@@ -93,6 +93,21 @@ This is a Spring Boot REST API for a simple fund transfer service. It allows use
   }
   ```
 
+### 5. Complete a Transfer
+**Endpoint:** `PUT /api/transfer/{id}/complete`
+- **Response:**
+  ```json
+  {
+    "id": 1,
+    "fromAccount": "123456789",
+    "toAccount": "987654321",
+    "amount": 100.50,
+    "description": "Payment for invoice #123",
+    "status": "COMPLETED",
+    "createdAt": "2025-04-02T12:00:00"
+  }
+  ```
+  
 ## Running the Application
 
 ### Prerequisites
@@ -117,7 +132,7 @@ This is a Spring Boot REST API for a simple fund transfer service. It allows use
 
 ### H2 Database Console
 - You can access the H2 console at: `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:mem:testdb`
+- JDBC URL: `jdbc:h2:mem:fundtransferdb`
 - Username: `sa`
 - Password: *(leave blank)*
 
