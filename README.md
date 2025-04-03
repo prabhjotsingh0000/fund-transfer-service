@@ -142,10 +142,33 @@ To run unit tests, execute:
 ./gradlew test
 ```
 
+## Steps to Run Using Docker
+
+### Prerequisites
+- Docker installed on your machine
+
+### Steps
+1. Build the JAR file:
+   ```sh
+   ./gradlew build
+   ```
+2. Build the Docker image:
+   ```sh
+   docker build -t fund-transfer-service .
+   ```
+3. Run the Docker container:
+   ```sh
+   docker run -p 8080:8080 fund-transfer-service
+   ```
+4. The API will be accessible at `http://localhost:8080/api/transfer`
+
+To stop the container:
+```sh
+docker ps  # Find the running container ID
+docker stop <container_id>
+```
+
 ## Future Enhancements
 - Add authentication & authorization
 - Introduce database persistence (PostgreSQL or MySQL)
 - Improve error handling with custom exceptions
-
-
-
