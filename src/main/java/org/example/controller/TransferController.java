@@ -54,4 +54,13 @@ public class TransferController {
         TransferResponseDTO response = transferService.cancelTransfer(id);
         return ResponseEntity.ok(response);
     }
+
+    /**
+     * Complete a transfer if it's still pending
+     */
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<TransferResponseDTO> completeTransfer(@PathVariable Long id) {
+        TransferResponseDTO response = transferService.completeTransfer(id);
+        return ResponseEntity.ok(response);
+    }
 }
