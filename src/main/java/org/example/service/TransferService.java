@@ -77,4 +77,19 @@ public class TransferService {
 
         return transferMapper.toResponseDTO(transfer);
     }
+
+    @Transactional
+    public TransferResponseDTO completeTransfer(Long id) {
+        Transfer transfer = transferRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Transfer not found"));
+
+        if (transfer.getStatus() != TransferStatus.PENDING) {
+            throw new IllegalStateException("Only pending transfers can be completed.");
+        }
+
+        transfer.setStatus(TransferStatus.COMPLETED);
+        transfer = transferRepository.save(transfer);
+
+        return transferMapper.toResponseDTO(transfer);
+    }
 }
